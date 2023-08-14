@@ -134,6 +134,21 @@ LRESULT WINAPI WndProc(HWND hwnd, UINT message, WPARAM wparam, LPARAM lparam)
 				else
 					ShowWindow(comboBoxAngle4, SW_HIDE);
 				
+				if (indexItems == Items::ItemChannel1)
+					ShowWindow(comboBoxChannel1, SW_SHOWNORMAL);
+				else
+					ShowWindow(comboBoxChannel1, SW_HIDE);
+				
+				if (indexItems == Items::ItemChannel2)
+					ShowWindow(comboBoxChannel2, SW_SHOWNORMAL);
+				else
+					ShowWindow(comboBoxChannel2, SW_HIDE);
+				
+				if (indexItems == Items::ItemChannel3)
+					ShowWindow(comboBoxChannel3, SW_SHOWNORMAL);
+				else
+					ShowWindow(comboBoxChannel3, SW_HIDE);
+				
 			}
 		}
 		//======================================================================================
@@ -155,7 +170,9 @@ LRESULT WINAPI WndProc(HWND hwnd, UINT message, WPARAM wparam, LPARAM lparam)
 			LOWORD(wparam) == comboBoxAngle2ID ||
 			LOWORD(wparam) == comboBoxAngle3ID ||
 			LOWORD(wparam) == comboBoxAngle4ID ||
-			LOWORD(wparam) == comboBoxChannelID ||
+			LOWORD(wparam) == comboBoxChannel1ID ||
+			LOWORD(wparam) == comboBoxChannel2ID ||
+			LOWORD(wparam) == comboBoxChannel3ID ||
 			LOWORD(wparam) == comboBoxTapeID ||
 			LOWORD(wparam) == comboBoxListID
 			)
