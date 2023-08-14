@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33829.357
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MetalCalculate", "MetalCalculate.vcxproj", "{3CDF4F56-C8BE-45F4-9784-5B2E3F3109DF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3CDF4F56-C8BE-45F4-9784-5B2E3F3109DF}.Debug|x64.ActiveCfg = Debug|x64
+		{3CDF4F56-C8BE-45F4-9784-5B2E3F3109DF}.Debug|x64.Build.0 = Debug|x64
+		{3CDF4F56-C8BE-45F4-9784-5B2E3F3109DF}.Debug|x86.ActiveCfg = Debug|Win32
+		{3CDF4F56-C8BE-45F4-9784-5B2E3F3109DF}.Debug|x86.Build.0 = Debug|Win32
+		{3CDF4F56-C8BE-45F4-9784-5B2E3F3109DF}.Release|x64.ActiveCfg = Release|x64
+		{3CDF4F56-C8BE-45F4-9784-5B2E3F3109DF}.Release|x64.Build.0 = Release|x64
+		{3CDF4F56-C8BE-45F4-9784-5B2E3F3109DF}.Release|x86.ActiveCfg = Release|Win32
+		{3CDF4F56-C8BE-45F4-9784-5B2E3F3109DF}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C21869F6-E745-4986-A66E-E23553E26FF3}
+	EndGlobalSection
+EndGlobal
