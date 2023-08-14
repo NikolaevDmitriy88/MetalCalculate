@@ -113,7 +113,27 @@ LRESULT WINAPI WndProc(HWND hwnd, UINT message, WPARAM wparam, LPARAM lparam)
 					ShowWindow(comboBoxCulvertProfileRec, SW_SHOWNORMAL);
 				else
 					ShowWindow(comboBoxCulvertProfileRec, SW_HIDE);
-
+				
+				if (indexItems == Items::ItemAngle1)
+					ShowWindow(comboBoxAngle1, SW_SHOWNORMAL);
+				else
+					ShowWindow(comboBoxAngle1, SW_HIDE);
+				
+				if (indexItems == Items::ItemAngle2)
+					ShowWindow(comboBoxAngle2, SW_SHOWNORMAL);
+				else
+					ShowWindow(comboBoxAngle2, SW_HIDE);
+				
+				if (indexItems == Items::ItemAngle3)
+					ShowWindow(comboBoxAngle3, SW_SHOWNORMAL);
+				else
+					ShowWindow(comboBoxAngle3, SW_HIDE);
+				
+				if (indexItems == Items::ItemAngle4)
+					ShowWindow(comboBoxAngle4, SW_SHOWNORMAL);
+				else
+					ShowWindow(comboBoxAngle4, SW_HIDE);
+				
 			}
 		}
 		//======================================================================================
@@ -131,10 +151,13 @@ LRESULT WINAPI WndProc(HWND hwnd, UINT message, WPARAM wparam, LPARAM lparam)
 			LOWORD(wparam) == comboBoxCulvertCircleID ||
 			LOWORD(wparam) == comboBoxCulvertProfileSqID ||
 			LOWORD(wparam) == comboBoxCulvertProfileRecID ||
+			LOWORD(wparam) == comboBoxAngle1ID ||
+			LOWORD(wparam) == comboBoxAngle2ID ||
+			LOWORD(wparam) == comboBoxAngle3ID ||
+			LOWORD(wparam) == comboBoxAngle4ID ||
+			LOWORD(wparam) == comboBoxChannelID ||
 			LOWORD(wparam) == comboBoxTapeID ||
-			LOWORD(wparam) == comboBoxListID ||
-			LOWORD(wparam) == comboBoxAngleID ||
-			LOWORD(wparam) == comboBoxChannelID
+			LOWORD(wparam) == comboBoxListID
 			)
 		{
 			if (HIWORD(wparam) == CBN_SELCHANGE)

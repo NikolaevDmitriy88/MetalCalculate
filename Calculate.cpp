@@ -880,8 +880,228 @@ void CalculateResult(HWND msgResult)
 		default:											kgInMeter = 0.f;			break;
 		}
 	}
+	else if (indexItems == IRON::Items::ItemAngle1)
+	{
+		switch (index)
+		{
+		case IRON::AngleType1::a1t32x25x2:			kgInMeter = 0.840f;			break;
+		case IRON::AngleType1::a1t32x25x2_5:		kgInMeter = 1.030f;			break;
+		case IRON::AngleType1::a1t40x25x2_5:		kgInMeter = 1.160f;			break;
+		case IRON::AngleType1::a1t50x35x3_2:		kgInMeter = 1.980f;			break;
+		case IRON::AngleType1::a1t60x40x3:			kgInMeter = 2.230f;			break;
+		case IRON::AngleType1::a1t70x50x4:			kgInMeter = 3.530f;			break;
+		case IRON::AngleType1::a1t80x63x4:			kgInMeter = 4.260f;			break;
+		case IRON::AngleType1::a1t85x35x4:			kgInMeter = 3.530f;			break;
+		case IRON::AngleType1::a1t85x67x4:			kgInMeter = 4.740f;			break;
+		case IRON::AngleType1::a1t90x70x4:			kgInMeter = 4.790f;			break;
+		case IRON::AngleType1::a1t100x65x4:			kgInMeter = 4.950f;			break;
+		case IRON::AngleType1::a1t105x100x3:		kgInMeter = 4.690f;			break;
+		case IRON::AngleType1::a1t110x90x5:			kgInMeter = 7.440f;			break;
+		case IRON::AngleType1::a1t115x65x5:			kgInMeter = 6.710f;			break;
+		case IRON::AngleType1::a1t120x100x8:		kgInMeter = 12.88f;			break;
+		case IRON::AngleType1::a1t147x125x8:		kgInMeter = 15.93f;			break;
+		case IRON::AngleType1::a1t152x100x5_5:		kgInMeter = 10.37f;			break;
+		case IRON::AngleType1::a1t155x100x6:		kgInMeter = 11.38f;			break;
+		case IRON::AngleType1::a1t180x140x6:		kgInMeter = 14.55f;			break;
+		default:									kgInMeter = 0.f;			break;
+		}
+	}
+	else if (indexItems == IRON::Items::ItemAngle2)
+	{
+		switch (index)
+		{
+		case IRON::AngleType2::a2t25x16x3:			kgInMeter = 0.910f;			break;
+		case IRON::AngleType2::a2t30x20x3:			kgInMeter = 1.120f;			break;
+		case IRON::AngleType2::a2t30x20x4:			kgInMeter = 1.460f;			break;
+		case IRON::AngleType2::a2t32x20x3:			kgInMeter = 1.170f;			break;
+		case IRON::AngleType2::a2t32x20x4:			kgInMeter = 1.520f;			break;
+		case IRON::AngleType2::a2t40x25x3:			kgInMeter = 1.480f;			break;
+		case IRON::AngleType2::a2t40x25x4:			kgInMeter = 1.940f;			break;
+		case IRON::AngleType2::a2t40x25x5:			kgInMeter = 2.370f;			break;
+		case IRON::AngleType2::a2t40x30x4:			kgInMeter = 2.260f;			break;
+		case IRON::AngleType2::a2t40x30x5:			kgInMeter = 2.460f;			break;
+		case IRON::AngleType2::a2t45x28x3:			kgInMeter = 1.680f;			break;
+		case IRON::AngleType2::a2t45x28x4:			kgInMeter = 2.200f;			break;
+		case IRON::AngleType2::a2t50x32x3:			kgInMeter = 1.900f;			break;
+		case IRON::AngleType2::a2t50x32x4:			kgInMeter = 2.400f;			break;
+		case IRON::AngleType2::a2t56x36x4:			kgInMeter = 2.810f;			break;
+		case IRON::AngleType2::a2t56x36x5:			kgInMeter = 3.460f;			break;
+		case IRON::AngleType2::a2t63x40x4:			kgInMeter = 3.170f;			break;
+		case IRON::AngleType2::a2t63x40x5:			kgInMeter = 3.910f;			break;
+		case IRON::AngleType2::a2t63x40x6:			kgInMeter = 4.630f;			break;
+		case IRON::AngleType2::a2t63x40x8:			kgInMeter = 6.030f;			break;
+		case IRON::AngleType2::a2t65x50x5:			kgInMeter = 4.360f;			break;
+		case IRON::AngleType2::a2t65x50x6:			kgInMeter = 5.180f;			break;
+		case IRON::AngleType2::a2t65x50x7:			kgInMeter = 5.980f;			break;
+		case IRON::AngleType2::a2t65x50x8:			kgInMeter = 6.770f;			break;
+		case IRON::AngleType2::a2t70x45x5:			kgInMeter = 4.390f;			break;
+		case IRON::AngleType2::a2t75x50x5:			kgInMeter = 4.790f;			break;
+		case IRON::AngleType2::a2t75x50x6:			kgInMeter = 5.690f;			break;
+		case IRON::AngleType2::a2t75x50x7:			kgInMeter = 6.570f;			break;
+		case IRON::AngleType2::a2t75x50x8:			kgInMeter = 7.430f;			break;
+		case IRON::AngleType2::a2t80x50x5:			kgInMeter = 4.490f;			break;
+		case IRON::AngleType2::a2t80x50x6:			kgInMeter = 5.920f;			break;
+		case IRON::AngleType2::a2t80x60x6:			kgInMeter = 6.390f;			break;
+		case IRON::AngleType2::a2t80x60x7:			kgInMeter = 7.390f;			break;
+		case IRON::AngleType2::a2t80x60x8:			kgInMeter = 8.370f;			break;
+		case IRON::AngleType2::a2t90x56x5_5:		kgInMeter = 6.170f;			break;
+		case IRON::AngleType2::a2t90x56x6:			kgInMeter = 6.700f;			break;
+		case IRON::AngleType2::a2t90x56x8:			kgInMeter = 8.770f;			break;
+		case IRON::AngleType2::a2t100x63x6:			kgInMeter = 7.530f;			break;
+		case IRON::AngleType2::a2t100x63x7:			kgInMeter = 8.700f;			break;
+		case IRON::AngleType2::a2t100x63x8:			kgInMeter = 9.870f;			break;
+		case IRON::AngleType2::a2t100x63x10:		kgInMeter = 12.14f;			break;
+		case IRON::AngleType2::a2t100x65x7:			kgInMeter = 8.810f;			break;
+		case IRON::AngleType2::a2t100x65x8:			kgInMeter = 9.990f;			break;
+		case IRON::AngleType2::a2t100x65x10:		kgInMeter = 12.30f;			break;
+		case IRON::AngleType2::a2t110x70x6_5:		kgInMeter = 8.980f;			break;
+		case IRON::AngleType2::a2t110x70x8:			kgInMeter = 10.93f;			break;
+		case IRON::AngleType2::a2t125x80x7:			kgInMeter = 11.04f;			break;
+		case IRON::AngleType2::a2t125x80x8:			kgInMeter = 12.58f;			break;
+		case IRON::AngleType2::a2t125x80x10:		kgInMeter = 15.47f;			break;
+		case IRON::AngleType2::a2t125x80x12:		kgInMeter = 18.34f;			break;
+		case IRON::AngleType2::a2t140x90x8:			kgInMeter = 14.13f;			break;
+		case IRON::AngleType2::a2t140x90x10:		kgInMeter = 17.46f;			break;
+		case IRON::AngleType2::a2t160x100x9:		kgInMeter = 17.96f;			break;
+		case IRON::AngleType2::a2t160x100x10:		kgInMeter = 19.85f;			break;
+		case IRON::AngleType2::a2t160x100x12:		kgInMeter = 23.58f;			break;
+		case IRON::AngleType2::a2t160x100x14:		kgInMeter = 27.26f;			break;
+		case IRON::AngleType2::a2t180x110x10:		kgInMeter = 22.20f;			break;
+		case IRON::AngleType2::a2t180x110x11:		kgInMeter = 26.40f;			break;
+		case IRON::AngleType2::a2t180x110x12:		kgInMeter = 27.37f;			break;
+		case IRON::AngleType2::a2t200x125x12:		kgInMeter = 29.74f;			break;
+		case IRON::AngleType2::a2t200x125x14:		kgInMeter = 34.43f;			break;
+		case IRON::AngleType2::a2t200x125x16:		kgInMeter = 39.07f;			break;
+		default:									kgInMeter = 0.f;			break;
+		}
+	}
+	else if (indexItems == IRON::Items::ItemAngle3)
+	{
+		switch (index)
+		{
+		case IRON::AngleType3::a3t20x3:			kgInMeter = 0.8900f;			break;
+		case IRON::AngleType3::a3t20x4:			kgInMeter = 1.1500f;			break;
+		case IRON::AngleType3::a3t25x3:			kgInMeter = 1.1200f;			break;
+		case IRON::AngleType3::a3t25x4:			kgInMeter = 1.4600f;			break;
+		case IRON::AngleType3::a3t28x3:			kgInMeter = 1.2700f;			break;
+		case IRON::AngleType3::a3t30x3:			kgInMeter = 1.3600f;			break;
+		case IRON::AngleType3::a3t30x4:			kgInMeter = 1.7800f;			break;
+		case IRON::AngleType3::a3t32x3:			kgInMeter = 1.4600f;			break;
+		case IRON::AngleType3::a3t32x4:			kgInMeter = 1.9100f;			break;
+		case IRON::AngleType3::a3t35x3:			kgInMeter = 1.6000f;			break;
+		case IRON::AngleType3::a3t35x4:			kgInMeter = 2.1000f;			break;
+		case IRON::AngleType3::a3t35x5:			kgInMeter = 2.5800f;			break;
+		case IRON::AngleType3::a3t40x3:			kgInMeter = 1.8500f;			break;
+		case IRON::AngleType3::a3t40x4:			kgInMeter = 2.4200f;			break;
+		case IRON::AngleType3::a3t40x5:			kgInMeter = 2.9800f;			break;
+		case IRON::AngleType3::a3t45x3:			kgInMeter = 2.0800f;			break;
+		case IRON::AngleType3::a3t45x4:			kgInMeter = 2.7300f;			break;
+		case IRON::AngleType3::a3t45x5:			kgInMeter = 3.3700f;			break;
+		case IRON::AngleType3::a3t50x3:			kgInMeter = 2.3200f;			break;
+		case IRON::AngleType3::a3t50x4:			kgInMeter = 3.0500f;			break;
+		case IRON::AngleType3::a3t50x5:			kgInMeter = 3.7700f;			break;
+		case IRON::AngleType3::a3t50x6:			kgInMeter = 4.4700f;			break;
+		case IRON::AngleType3::a3t56x4:			kgInMeter = 3.4400f;			break;
+		case IRON::AngleType3::a3t56x5:			kgInMeter = 4.2500f;			break;
+		case IRON::AngleType3::a3t63x4:			kgInMeter = 3.9000f;			break;
+		case IRON::AngleType3::a3t63x5:			kgInMeter = 4.8100f;			break;
+		case IRON::AngleType3::a3t63x6:			kgInMeter = 5.7200f;			break;
+		case IRON::AngleType3::a3t70x4_5:		kgInMeter = 4.8700f;			break;
+		case IRON::AngleType3::a3t70x5:			kgInMeter = 5.3800f;			break;
+		case IRON::AngleType3::a3t70x6:			kgInMeter = 6.3900f;			break;
+		case IRON::AngleType3::a3t70x7:			kgInMeter = 7.3900f;			break;
+		case IRON::AngleType3::a3t70x8:			kgInMeter = 8.3700f;			break;
+		case IRON::AngleType3::a3t75x5:			kgInMeter = 5.8000f;			break;
+		case IRON::AngleType3::a3t75x6:			kgInMeter = 6.8900f;			break;
+		case IRON::AngleType3::a3t75x7:			kgInMeter = 7.9600f;			break;
+		case IRON::AngleType3::a3t75x8:			kgInMeter = 9.0200f;			break;
+		case IRON::AngleType3::a3t75x9:			kgInMeter = 10.070f;			break;
+		case IRON::AngleType3::a3t80x5_5:		kgInMeter = 6.7800f;			break;
+		case IRON::AngleType3::a3t80x6:			kgInMeter = 7.3600f;			break;
+		case IRON::AngleType3::a3t80x7:			kgInMeter = 8.5100f;			break;
+		case IRON::AngleType3::a3t80x8:			kgInMeter = 9.6500f;			break;
+		case IRON::AngleType3::a3t90x6:			kgInMeter = 8.3300f;			break;
+		case IRON::AngleType3::a3t90x7:			kgInMeter = 9.6400f;			break;
+		case IRON::AngleType3::a3t90x8:			kgInMeter = 10.930f;			break;
+		case IRON::AngleType3::a3t90x9:			kgInMeter = 12.200f;			break;
+		case IRON::AngleType3::a3t100x6_5:		kgInMeter = 10.060f;			break;
+		case IRON::AngleType3::a3t100x7:		kgInMeter = 10.790f;			break;
+		case IRON::AngleType3::a3t100x8:		kgInMeter = 12.250f;			break;
+		case IRON::AngleType3::a3t100x10:		kgInMeter = 15.100f;			break;
+		case IRON::AngleType3::a3t100x12:		kgInMeter = 17.900f;			break;
+		case IRON::AngleType3::a3t100x14:		kgInMeter = 20.630f;			break;
+		case IRON::AngleType3::a3t100x16:		kgInMeter = 23.300f;			break;
+		case IRON::AngleType3::a3t110x7:		kgInMeter = 11.890f;			break;
+		case IRON::AngleType3::a3t110x8:		kgInMeter = 13.500f;			break;
+		case IRON::AngleType3::a3t125x8:		kgInMeter = 15.460f;			break;
+		case IRON::AngleType3::a3t125x9:		kgInMeter = 17.300f;			break;
+		case IRON::AngleType3::a3t125x10:		kgInMeter = 19.100f;			break;
+		case IRON::AngleType3::a3t125x12:		kgInMeter = 22.680f;			break;
+		case IRON::AngleType3::a3t125x14:		kgInMeter = 26.200f;			break;
+		case IRON::AngleType3::a3t125x16:		kgInMeter = 29.650f;			break;
+		case IRON::AngleType3::a3t140x9:		kgInMeter = 19.410f;			break;
+		case IRON::AngleType3::a3t140x10:		kgInMeter = 21.450f;			break;
+		case IRON::AngleType3::a3t140x12:		kgInMeter = 25.500f;			break;
+		case IRON::AngleType3::a3t160x10:		kgInMeter = 24.670f;			break;
+		case IRON::AngleType3::a3t160x11:		kgInMeter = 27.020f;			break;
+		case IRON::AngleType3::a3t160x12:		kgInMeter = 29.350f;			break;
+		case IRON::AngleType3::a3t160x14:		kgInMeter = 34.200f;			break;
+		case IRON::AngleType3::a3t160x16:		kgInMeter = 38.520f;			break;
+		case IRON::AngleType3::a3t160x18:		kgInMeter = 43.010f;			break;
+		case IRON::AngleType3::a3t160x20:		kgInMeter = 47.410f;			break;
+		case IRON::AngleType3::a3t180x11:		kgInMeter = 30.470f;			break;
+		case IRON::AngleType3::a3t180x12:		kgInMeter = 33.120f;			break;
+		case IRON::AngleType3::a3t200x12:		kgInMeter = 36.970f;			break;
+		case IRON::AngleType3::a3t200x13:		kgInMeter = 39.920f;			break;
+		case IRON::AngleType3::a3t200x14:		kgInMeter = 42.800f;			break;
+		case IRON::AngleType3::a3t200x16:		kgInMeter = 48.650f;			break;
+		case IRON::AngleType3::a3t200x20:		kgInMeter = 60.080f;			break;
+		case IRON::AngleType3::a3t200x25:		kgInMeter = 74.020f;			break;
+		case IRON::AngleType3::a3t200x30:		kgInMeter = 87.560f;			break;
+		case IRON::AngleType3::a3t220x14:		kgInMeter = 47.400f;			break;
+		case IRON::AngleType3::a3t220x16:		kgInMeter = 53.830f;			break;
+		case IRON::AngleType3::a3t250x16:		kgInMeter = 61.550f;			break;
+		case IRON::AngleType3::a3t250x18:		kgInMeter = 68.860f;			break;
+		case IRON::AngleType3::a3t250x20:		kgInMeter = 76.110f;			break;
+		case IRON::AngleType3::a3t250x22:		kgInMeter = 83.310f;			break;
+		case IRON::AngleType3::a3t250x25:		kgInMeter = 93.970f;			break;
+		case IRON::AngleType3::a3t250x28:		kgInMeter = 104.50f;			break;
+		case IRON::AngleType3::a3t250x30:		kgInMeter = 111.44f;			break;
+		case IRON::AngleType3::a3t250x35:		kgInMeter = 128.51f;			break;
+		default:								kgInMeter = 0.f;				break;
+		}
+	}
+	else if (indexItems == IRON::Items::ItemAngle4)
+	{
+		switch (index)
+		{
+		case IRON::AngleType4::a4t36x3:			kgInMeter = 1.570f;				break;
+		case IRON::AngleType4::a4t40x2_5:		kgInMeter = 1.480f;				break;
+		case IRON::AngleType4::a4t40x3:			kgInMeter = 1.760f;				break;
+		case IRON::AngleType4::a4t50x3:			kgInMeter = 2.230f;				break;
+		case IRON::AngleType4::a4t50x4:			kgInMeter = 2.900f;				break;
+		case IRON::AngleType4::a4t55x3:			kgInMeter = 2.430f;				break;
+		case IRON::AngleType4::a4t60x3:			kgInMeter = 2.700f;				break;
+		case IRON::AngleType4::a4t60x4:			kgInMeter = 3.530f;				break;
+		case IRON::AngleType4::a4t70x4:			kgInMeter = 4.160f;				break;
+		case IRON::AngleType4::a4t80x3:			kgInMeter = 3.640f;				break;
+		case IRON::AngleType4::a4t80x4:			kgInMeter = 4.790f;				break;
+		case IRON::AngleType4::a4t80x5:			kgInMeter = 5.920f;				break;
+		case IRON::AngleType4::a4t80x6:			kgInMeter = 7.010f;				break;
+		case IRON::AngleType4::a4t80x7:			kgInMeter = 8.110f;				break;
+		case IRON::AngleType4::a4t100x4:		kgInMeter = 6.050f;				break;
+		case IRON::AngleType4::a4t100x5:		kgInMeter = 7.490f;				break;
+		case IRON::AngleType4::a4t100x6:		kgInMeter = 8.890f;				break;
+		case IRON::AngleType4::a4t100x7:		kgInMeter = 10.31f;				break;
+		case IRON::AngleType4::a4t120x5:		kgInMeter = 9.060f;				break;
+		case IRON::AngleType4::a4t120x6:		kgInMeter = 10.78f;				break;
+		case IRON::AngleType4::a4t160x4:		kgInMeter = 9.760f;				break;
+		default:								kgInMeter = 0.f;				break;
+		}
+	}
 	else
 	{
+
 		//resultFloat = std::stof(resultMsg) * indexItems + indexCB2;
 	}
 
@@ -894,6 +1114,6 @@ void CalculateResult(HWND msgResult)
 		resultFloat = std::stof(resultMsg) / kgInMeter;			// ¬вод в кг вывод метры, если надо сантиметры умножай на 100
 
 	resultMsg = std::to_string(resultFloat);
-	
+
 	SetWindowTextA(msgResult, resultMsg.c_str());
 }
