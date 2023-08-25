@@ -132,6 +132,7 @@
     <ClCompile Include="Calculate.cpp" />
     <ClCompile Include="GUI.cpp" />
     <ClCompile Include="MetalCalculate.cpp" />
+    <ClCompile Include="WndProc.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Header.h" />

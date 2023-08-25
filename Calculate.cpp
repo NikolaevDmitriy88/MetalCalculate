@@ -13,10 +13,10 @@ bool isTabularInfo{ true };
 
 void CalculateResult(HWND msgResult)
 {
+	static std::string resultMsg {""};
 	static std::string hight{""};
 	static std::string width{""};
-	static float kgInMeter{};
-
+	float kgInMeter{};
 
 	if (indexItems == IRON::Items::ItemArmature)
 	{
@@ -1462,8 +1462,8 @@ void CalculateResult(HWND msgResult)
 		}
 	}
 
-	std::string resultMsg { inputCount };
 	float result{};
+	resultMsg = inputCount;
 
 	if (isTabularInfo)
 	{
