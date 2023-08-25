@@ -1506,7 +1506,6 @@ void buildGUI()
 	SendMessage(comboBoxMetalType, CB_ADDSTRING, 0, LPARAM(TEXT("20")));
 	SendMessage(comboBoxMetalType, CB_ADDSTRING, 0, LPARAM(TEXT("40X")));
 	SendMessage(comboBoxMetalType, CB_ADDSTRING, 0, LPARAM(TEXT("45")));
-	SendMessage(comboBoxMetalType, CB_ADDSTRING, 0, LPARAM(TEXT("65")));
 	SendMessage(comboBoxMetalType, CB_ADDSTRING, 0, LPARAM(TEXT("65Ã")));
 	SendMessage(comboBoxMetalType, CB_ADDSTRING, 0, LPARAM(TEXT("09Ã2Ñ")));
 	SendMessage(comboBoxMetalType, CB_ADDSTRING, 0, LPARAM(TEXT("15Õ5Ì")));

@@ -44,9 +44,9 @@ extern char inputCount[15];
 extern char inputHight[4];
 extern char inputWidth[6];
 
-extern UINT16 indexMetalType;
 extern UINT16 index;
 extern UINT16 indexItems;
+extern UINT16 indexMetalType;
 
 extern bool msgLengthOrWeight;
 extern bool isTabularInfo;
@@ -78,7 +78,7 @@ namespace IRON
 	//============================ Типы стали =================================
 	enum MetalType
 	{
-		mtST_3 = 0, mt10, mt20, mt40H, mt45, mt65, mt65G, mt09G2S, mt15H5M, mt10HSND,
+		mtST_3 = 0, mt10, mt20, mt40H, mt45, mt65G, mt09G2S, mt15H5M, mt10HSND,
 		mt12H1MF, mtSHH15, mtR6M5, mtU7, mtU8, mtU8A, mtU10, mtU10A, mtU12A
 	};
 	//=========================== Арматура ====================================
@@ -87,7 +87,6 @@ namespace IRON
 		D6 = 0, D6_5, D8, D10, D12, D14, D16, D18, D20, D22, D25, D28, D32,
 		D36, D40, D45, D50, D55, D60, D70, D80
 	};
-
 	//====================== Типы Балки/Двутавр ===============================
 	enum BeamGost8239_89
 	{
@@ -309,17 +308,6 @@ namespace IRON
 		c3t300x80x40x4, c3t300x80x40x5
 	};
 
-	enum Tape
-	{
-
-	};
-
-	enum List
-	{
-
-	};
-
-
 	/*enum BeamWeld
 	{
 		t45BS1 = 0, t45BS2, t45BS3, t50BS1, t50BS2, t50BS3, t50BS4, t55BS1, t55BS2, t60BS1,
@@ -327,11 +315,5 @@ namespace IRON
 		t70BS6, t80BS1, t80BS2, t90BS1, t90BS2, t100BS1, t100BS2, t100BS3, t120BS1, t120BS2,
 		t140BS1, t140BS2, t140BS3, t160BS1, t160BS2, t160BS3, t160BS4, t180BS1, t180BS2,
 		t180BS3, t180BS4, t200BS1, t200BS2, t200BS3
-	};
-	enum PipeBend1 {};
-	enum PipeBend2 {};
-	enum Flange {};
-	enum Hexahedron {};
-	*/
-	//HWND comboBoxBeamWeld;
+	};*/
 }

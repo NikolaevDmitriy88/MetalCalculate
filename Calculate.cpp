@@ -4,9 +4,9 @@ char inputCount[15]{};
 char inputHight[4]{};
 char inputWidth[6]{};
 
-UINT16 indexMetalType{};
-UINT16 indexItems{};
 UINT16 index{};
+UINT16 indexItems{};
+UINT16 indexMetalType{};
 
 bool msgLengthOrWeight{};
 bool isTabularInfo{ true };
@@ -16,6 +16,7 @@ void CalculateResult(HWND msgResult)
 	static std::string hight{""};
 	static std::string width{""};
 	static float kgInMeter{};
+
 
 	if (indexItems == IRON::Items::ItemArmature)
 	{
@@ -1434,15 +1435,31 @@ void CalculateResult(HWND msgResult)
 		default:											kgInMeter = 0.f;			break;
 		}
 	}
-	else if (indexItems == IRON::Items::ItemTape || indexItems == IRON::Items::ItemList)
-	{
-		kgInMeter = 7894.f;
-		hight = inputHight;
-		width = inputWidth;
-	}
 	else
 	{
-		//resultFloat = std::stof(resultMsg) * indexItems + indexCB2;
+		// В этом случае kgInMeter является плотностью стали 
+		switch (indexMetalType)
+		{
+		case IRON::mtST_3:			kgInMeter = 7850.f;			break;
+		case IRON::mt10:			kgInMeter = 7856.f;			break;
+		case IRON::mt20:			kgInMeter = 7859.f;			break;
+		case IRON::mt40H:			kgInMeter = 7820.f;			break;
+		case IRON::mt45:			kgInMeter = 7826.f;			break;
+		case IRON::mt65G:			kgInMeter = 7850.f;			break;
+		case IRON::mt09G2S:			kgInMeter = 7850.f;			break;
+		case IRON::mt15H5M:			kgInMeter = 7750.f;			break;
+		case IRON::mt10HSND:		kgInMeter = 7850.f;			break;
+		case IRON::mt12H1MF:		kgInMeter = 7800.f;			break;
+		case IRON::mtSHH15:			kgInMeter = 7815.f;			break;
+		case IRON::mtR6M5:			kgInMeter = 7750.f;			break;
+		case IRON::mtU7:			kgInMeter = 7830.f;			break;
+		case IRON::mtU8:			kgInMeter = 7850.f;			break;
+		case IRON::mtU8A:			kgInMeter = 7850.f;			break;
+		case IRON::mtU10:			kgInMeter = 7810.f;			break;
+		case IRON::mtU10A:			kgInMeter = 7810.f;			break;
+		case IRON::mtU12A:			kgInMeter = 7810.f;			break;
+		default:					kgInMeter = 0.f;			break;
+		}
 	}
 
 	std::string resultMsg { inputCount };
@@ -1457,6 +1474,8 @@ void CalculateResult(HWND msgResult)
 	}
 	else
 	{
+		hight = inputHight;
+		width = inputWidth;
 		if (!msgLengthOrWeight)
 			result = kgInMeter * ((std::stof(hight) * std::stof(width) * std::stof(resultMsg) / 100'000'000)); // Hight/1000 Width/1000 Length/100
 		else
@@ -1466,4 +1485,6 @@ void CalculateResult(HWND msgResult)
 	resultMsg = std::to_string(result);
 
 	SetWindowTextA(msgResult, resultMsg.c_str());
+
+	!msgLengthOrWeight ? SetWindowTextW(msg2, TEXT("килограммы")) : SetWindowTextW(msg2, TEXT("метры"));
 }

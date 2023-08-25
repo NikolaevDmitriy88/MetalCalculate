@@ -113,61 +113,61 @@ LRESULT WINAPI WndProc(HWND hwnd, UINT message, WPARAM wparam, LPARAM lparam)
 					ShowWindow(comboBoxCulvertProfileRec, SW_SHOWNORMAL);
 				else
 					ShowWindow(comboBoxCulvertProfileRec, SW_HIDE);
-				
+
 				if (indexItems == Items::ItemAngle1)
 					ShowWindow(comboBoxAngle1, SW_SHOWNORMAL);
 				else
 					ShowWindow(comboBoxAngle1, SW_HIDE);
-				
+
 				if (indexItems == Items::ItemAngle2)
 					ShowWindow(comboBoxAngle2, SW_SHOWNORMAL);
 				else
 					ShowWindow(comboBoxAngle2, SW_HIDE);
-				
+
 				if (indexItems == Items::ItemAngle3)
 					ShowWindow(comboBoxAngle3, SW_SHOWNORMAL);
 				else
 					ShowWindow(comboBoxAngle3, SW_HIDE);
-				
+
 				if (indexItems == Items::ItemAngle4)
 					ShowWindow(comboBoxAngle4, SW_SHOWNORMAL);
 				else
 					ShowWindow(comboBoxAngle4, SW_HIDE);
-				
+
 				if (indexItems == Items::ItemChannel1)
 					ShowWindow(comboBoxChannel1, SW_SHOWNORMAL);
 				else
 					ShowWindow(comboBoxChannel1, SW_HIDE);
-				
+
 				if (indexItems == Items::ItemChannel2)
 					ShowWindow(comboBoxChannel2, SW_SHOWNORMAL);
 				else
 					ShowWindow(comboBoxChannel2, SW_HIDE);
-				
+
 				if (indexItems == Items::ItemChannel3)
 					ShowWindow(comboBoxChannel3, SW_SHOWNORMAL);
 				else
 					ShowWindow(comboBoxChannel3, SW_HIDE);
-				
+
 				if (indexItems == Items::ItemTape || indexItems == Items::ItemList)
 				{
-					ShowWindow(msgHight,          SW_SHOWNORMAL);
-					ShowWindow(editHight,         SW_SHOWNORMAL);
-					ShowWindow(msgWidth,          SW_SHOWNORMAL);
-					ShowWindow(editWidth,         SW_SHOWNORMAL);
+					ShowWindow(msgHight, SW_SHOWNORMAL);
+					ShowWindow(editHight, SW_SHOWNORMAL);
+					ShowWindow(msgWidth, SW_SHOWNORMAL);
+					ShowWindow(editWidth, SW_SHOWNORMAL);
 					ShowWindow(comboBoxMetalType, SW_SHOWNORMAL);
 					isTabularInfo = false;
 				}
 				else
 				{
-					ShowWindow(msgHight,          SW_HIDE);
-					ShowWindow(editHight,         SW_HIDE);
-					ShowWindow(msgWidth,          SW_HIDE);
-					ShowWindow(editWidth,         SW_HIDE);
+					ShowWindow(msgHight, SW_HIDE);
+					ShowWindow(editHight, SW_HIDE);
+					ShowWindow(msgWidth, SW_HIDE);
+					ShowWindow(editWidth, SW_HIDE);
 					ShowWindow(comboBoxMetalType, SW_HIDE);
 					isTabularInfo = true;
 				}
-				
+
 			}
 		}
 		//======================================================================================
@@ -197,10 +197,15 @@ LRESULT WINAPI WndProc(HWND hwnd, UINT message, WPARAM wparam, LPARAM lparam)
 			)
 		{
 			if (HIWORD(wparam) == CBN_SELCHANGE)
-			{
 				index = (UINT16)SendMessage((HWND)lparam, CB_GETCURSEL, 0, 0);
-			}
 		}
+
+		if (LOWORD(wparam) == comboBoxMetalTypeID)
+		{
+			if (HIWORD(wparam) == CBN_SELCHANGE)
+				indexMetalType = (UINT16)SendMessage((HWND)lparam, CB_GETCURSEL, 0, 0);
+		}
+
 		//================================= Выбор расчётов ======================================
 
 		if (LOWORD(wparam) == buttonLengthOrWeightID)
@@ -225,24 +230,21 @@ LRESULT WINAPI WndProc(HWND hwnd, UINT message, WPARAM wparam, LPARAM lparam)
 		{
 			GetWindowTextA(edit, inputCount, 15);
 			SetWindowTextA(edit, "");
-			
+
 			GetWindowTextA(editHight, inputHight, 4);
 			SetWindowTextA(editHight, "");
-			
+
 			GetWindowTextA(editWidth, inputWidth, 6);
 			SetWindowTextA(editWidth, "");
 
-			!msgLengthOrWeight ? SetWindowTextW(msg2, TEXT("килограммы")) : SetWindowTextW(msg2, TEXT("метры"));
 
-			if (isTabularInfo)
-			{
-				if (inputCount[0])
-					CalculateResult(msgResult);
-			}
+			if ((isTabularInfo && inputCount[0]) ||
+				(!isTabularInfo && inputCount[0] && inputHight[0] && inputWidth[0]))
+				CalculateResult(msgResult);
 			else
 			{
-				if (inputCount[0] && inputHight[0] && inputWidth[0])
-					CalculateResult(msgResult);
+				SetWindowTextW(msgResult, TEXT("результат"));
+				SetWindowTextW(msg2, TEXT(""));
 			}
 		}
 
