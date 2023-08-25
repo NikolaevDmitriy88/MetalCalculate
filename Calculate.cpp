@@ -1,15 +1,20 @@
 #include "Header.h"
 
 char inputCount[15]{};
+char inputHight[4]{};
+char inputWidth[6]{};
 
 UINT16 indexMetalType{};
 UINT16 indexItems{};
 UINT16 index{};
 
 bool msgLengthOrWeight{};
+bool isTabularInfo{ true };
 
 void CalculateResult(HWND msgResult)
 {
+	static std::string hight{""};
+	static std::string width{""};
 	static float kgInMeter{};
 
 	if (indexItems == IRON::Items::ItemArmature)
@@ -1429,20 +1434,36 @@ void CalculateResult(HWND msgResult)
 		default:											kgInMeter = 0.f;			break;
 		}
 	}
+	else if (indexItems == IRON::Items::ItemTape || indexItems == IRON::Items::ItemList)
+	{
+		kgInMeter = 7894.f;
+		hight = inputHight;
+		width = inputWidth;
+	}
 	else
 	{
 		//resultFloat = std::stof(resultMsg) * indexItems + indexCB2;
 	}
 
 	std::string resultMsg { inputCount };
-	float resultFloat{};
+	float result{};
 
-	if (!msgLengthOrWeight)
-		resultFloat = std::stof(resultMsg) * kgInMeter / 100;	// ¬вод сантиметры вывод кг, поэтому kgInMeter / 100 
+	if (isTabularInfo)
+	{
+		if (!msgLengthOrWeight)
+			result = std::stof(resultMsg) * kgInMeter / 100;	// ¬вод сантиметры вывод кг, поэтому kgInMeter / 100 
+		else
+			result = std::stof(resultMsg) / kgInMeter;			// ¬вод в кг вывод метры, если надо сантиметры умножай на 100
+	}
 	else
-		resultFloat = std::stof(resultMsg) / kgInMeter;			// ¬вод в кг вывод метры, если надо сантиметры умножай на 100
+	{
+		if (!msgLengthOrWeight)
+			result = kgInMeter * ((std::stof(hight) * std::stof(width) * std::stof(resultMsg) / 100'000'000)); // Hight/1000 Width/1000 Length/100
+		else
+			result = std::stof(resultMsg) / (kgInMeter * (std::stof(hight) * std::stof(width) / 1'000'000));
+	}
 
-	resultMsg = std::to_string(resultFloat);
+	resultMsg = std::to_string(result);
 
 	SetWindowTextA(msgResult, resultMsg.c_str());
 }

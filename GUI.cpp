@@ -26,7 +26,11 @@ HWND comboBoxList;
 
 HWND msg;
 HWND msg2;
+HWND msgHight;
+HWND msgWidth;
 HWND edit;
+HWND editHight;
+HWND editWidth;
 HWND msgResult;
 HWND buttonLengthOrWeight;
 
@@ -39,7 +43,7 @@ void buildGUI()
 	UpdateWindow(hwnd);
 	
 	comboBoxItems = CreateWindow(TEXT("COMBOBOX"), NULL, WS_CHILD | WS_VISIBLE | WS_VSCROLL | CBS_NOINTEGRALHEIGHT | CBS_DROPDOWNLIST,
-		10, 10, 290, 300, hwnd, HMENU(IRON::comboBoxID::comboBoxItemsID), NULL, NULL);
+		10, 10, 300, 300, hwnd, HMENU(IRON::comboBoxID::comboBoxItemsID), NULL, NULL);
 
 	SendMessage(comboBoxItems, CB_ADDSTRING, 0, LPARAM(TEXT("арматура")));
 	SendMessage(comboBoxItems, CB_ADDSTRING, 0, LPARAM(TEXT("балка/двутав/ГОСТ 8239-89")));
@@ -60,37 +64,12 @@ void buildGUI()
 	SendMessage(comboBoxItems, CB_ADDSTRING, 0, LPARAM(TEXT("швеллер горячекатаный равнополочный")));
 	SendMessage(comboBoxItems, CB_ADDSTRING, 0, LPARAM(TEXT("швеллер гнутый равнополочный")));
 	SendMessage(comboBoxItems, CB_ADDSTRING, 0, LPARAM(TEXT("швеллер гнутый неравнополочный")));
-
 	SendMessage(comboBoxItems, CB_ADDSTRING, 0, LPARAM(TEXT("лента")));
 	SendMessage(comboBoxItems, CB_ADDSTRING, 0, LPARAM(TEXT("лист")));
 	SendMessage(comboBoxItems, CB_SETCURSEL, 0, 0);
 
-	comboBoxMetalType = CreateWindow(TEXT("COMBOBOX"), NULL, WS_CHILD | WS_VISIBLE | WS_VSCROLL | CBS_DROPDOWNLIST,
-		10, 70, 160, 220, hwnd, HMENU(IRON::comboBoxID::comboBoxMetalTypeID), NULL, NULL);
-
-	SendMessage(comboBoxMetalType, CB_ADDSTRING, 0, LPARAM(TEXT("СТ 3")));
-	SendMessage(comboBoxMetalType, CB_ADDSTRING, 0, LPARAM(TEXT("10")));
-	SendMessage(comboBoxMetalType, CB_ADDSTRING, 0, LPARAM(TEXT("20")));
-	SendMessage(comboBoxMetalType, CB_ADDSTRING, 0, LPARAM(TEXT("40X")));
-	SendMessage(comboBoxMetalType, CB_ADDSTRING, 0, LPARAM(TEXT("45")));
-	SendMessage(comboBoxMetalType, CB_ADDSTRING, 0, LPARAM(TEXT("65")));
-	SendMessage(comboBoxMetalType, CB_ADDSTRING, 0, LPARAM(TEXT("65Г")));
-	SendMessage(comboBoxMetalType, CB_ADDSTRING, 0, LPARAM(TEXT("09Г2С")));
-	SendMessage(comboBoxMetalType, CB_ADDSTRING, 0, LPARAM(TEXT("15Х5М")));
-	SendMessage(comboBoxMetalType, CB_ADDSTRING, 0, LPARAM(TEXT("10ХСНД")));
-	SendMessage(comboBoxMetalType, CB_ADDSTRING, 0, LPARAM(TEXT("12Х1МФ")));
-	SendMessage(comboBoxMetalType, CB_ADDSTRING, 0, LPARAM(TEXT("ШХ15")));
-	SendMessage(comboBoxMetalType, CB_ADDSTRING, 0, LPARAM(TEXT("Р6М5")));
-	SendMessage(comboBoxMetalType, CB_ADDSTRING, 0, LPARAM(TEXT("У7")));
-	SendMessage(comboBoxMetalType, CB_ADDSTRING, 0, LPARAM(TEXT("У8")));
-	SendMessage(comboBoxMetalType, CB_ADDSTRING, 0, LPARAM(TEXT("У8А")));
-	SendMessage(comboBoxMetalType, CB_ADDSTRING, 0, LPARAM(TEXT("У10")));
-	SendMessage(comboBoxMetalType, CB_ADDSTRING, 0, LPARAM(TEXT("У10А")));
-	SendMessage(comboBoxMetalType, CB_ADDSTRING, 0, LPARAM(TEXT("У12А")));
-	SendMessage(comboBoxMetalType, CB_SETCURSEL, 0, 0);
-
 	comboBoxArmature = CreateWindow(TEXT("COMBOBOX"), NULL, WS_CHILD | WS_VISIBLE | WS_VSCROLL | CBS_NOINTEGRALHEIGHT | CBS_DROPDOWNLIST,
-		10, 40, 160, 250, hwnd, HMENU(IRON::comboBoxID::comboBoxArmatureID), NULL, NULL);
+		10, 40, 140, 250, hwnd, HMENU(IRON::comboBoxID::comboBoxArmatureID), NULL, NULL);
 
 	SendMessage(comboBoxArmature, CB_ADDSTRING, 0, LPARAM(TEXT("d6")));
 	SendMessage(comboBoxArmature, CB_ADDSTRING, 0, LPARAM(TEXT("d6.5")));
@@ -116,7 +95,7 @@ void buildGUI()
 	SendMessage(comboBoxArmature, CB_SETCURSEL, 0, 0);
 
 	comboBoxBeamGOST = CreateWindow(TEXT("COMBOBOX"), NULL, WS_CHILD | WS_VSCROLL | CBS_NOINTEGRALHEIGHT | CBS_DROPDOWNLIST,
-		10, 40, 160, 250, hwnd, HMENU(IRON::comboBoxID::comboBoxBeamGOSTID), NULL, NULL);
+		10, 40, 140, 250, hwnd, HMENU(IRON::comboBoxID::comboBoxBeamGOSTID), NULL, NULL);
 
 	SendMessage(comboBoxBeamGOST, CB_ADDSTRING, 0, LPARAM(TEXT("10")));
 	SendMessage(comboBoxBeamGOST, CB_ADDSTRING, 0, LPARAM(TEXT("12")));
@@ -138,7 +117,7 @@ void buildGUI()
 	SendMessage(comboBoxBeamGOST, CB_SETCURSEL, 0, 0);
 
 	comboBoxBeamNormal = CreateWindow(TEXT("COMBOBOX"), NULL, WS_CHILD | WS_VSCROLL | CBS_NOINTEGRALHEIGHT | CBS_DROPDOWNLIST,
-		10, 40, 160, 250, hwnd, HMENU(IRON::comboBoxID::comboBoxBeamNormalID), NULL, NULL);
+		10, 40, 140, 250, hwnd, HMENU(IRON::comboBoxID::comboBoxBeamNormalID), NULL, NULL);
 
 	SendMessage(comboBoxBeamNormal, CB_ADDSTRING, 0, LPARAM(TEXT("10Б1")));
 	SendMessage(comboBoxBeamNormal, CB_ADDSTRING, 0, LPARAM(TEXT("12Б1")));
@@ -180,7 +159,7 @@ void buildGUI()
 	SendMessage(comboBoxBeamNormal, CB_SETCURSEL, 0, 0);
 
 	comboBoxBeamWide = CreateWindow(TEXT("COMBOBOX"), NULL, WS_CHILD | WS_VSCROLL | CBS_NOINTEGRALHEIGHT | CBS_DROPDOWNLIST,
-		10, 40, 160, 250, hwnd, HMENU(IRON::comboBoxID::comboBoxBeamWideID), NULL, NULL);
+		10, 40, 140, 250, hwnd, HMENU(IRON::comboBoxID::comboBoxBeamWideID), NULL, NULL);
 
 	SendMessage(comboBoxBeamWide, CB_ADDSTRING, 0, LPARAM(TEXT("20Ш1")));
 	SendMessage(comboBoxBeamWide, CB_ADDSTRING, 0, LPARAM(TEXT("23Ш1")));
@@ -211,7 +190,7 @@ void buildGUI()
 	SendMessage(comboBoxBeamWide, CB_SETCURSEL, 0, 0);
 
 	comboBoxBeamColumn = CreateWindow(TEXT("COMBOBOX"), NULL, WS_CHILD | WS_VSCROLL | CBS_NOINTEGRALHEIGHT | CBS_DROPDOWNLIST,
-		10, 40, 160, 250, hwnd, HMENU(IRON::comboBoxID::comboBoxBeamColumnID), NULL, NULL);
+		10, 40, 140, 250, hwnd, HMENU(IRON::comboBoxID::comboBoxBeamColumnID), NULL, NULL);
 
 	SendMessage(comboBoxBeamColumn, CB_ADDSTRING, 0, LPARAM(TEXT("20K1")));
 	SendMessage(comboBoxBeamColumn, CB_ADDSTRING, 0, LPARAM(TEXT("20K2")));
@@ -234,7 +213,7 @@ void buildGUI()
 	SendMessage(comboBoxBeamColumn, CB_SETCURSEL, 0, 0);
 
 	comboBoxBeamASeries = CreateWindow(TEXT("COMBOBOX"), NULL, WS_CHILD | WS_VSCROLL | CBS_NOINTEGRALHEIGHT | CBS_DROPDOWNLIST,
-		10, 40, 160, 250, hwnd, HMENU(IRON::comboBoxID::comboBoxBeamASeriesID), NULL, NULL);
+		10, 40, 140, 250, hwnd, HMENU(IRON::comboBoxID::comboBoxBeamASeriesID), NULL, NULL);
 
 	SendMessage(comboBoxBeamASeries, CB_ADDSTRING, 0, LPARAM(TEXT("24ДБ1")));
 	SendMessage(comboBoxBeamASeries, CB_ADDSTRING, 0, LPARAM(TEXT("27ДБ1")));
@@ -249,7 +228,7 @@ void buildGUI()
 	SendMessage(comboBoxBeamASeries, CB_SETCURSEL, 0, 0);
 
 	/*comboBoxBeamWeld = CreateWindow(TEXT("COMBOBOX"), NULL, WS_CHILD | WS_VSCROLL | CBS_NOINTEGRALHEIGHT | CBS_DROPDOWNLIST,
-		10, 40, 160, 250, hwnd, HMENU(IRON::comboBoxID::comboBoxBeamWeldID), NULL, NULL);
+		10, 40, 140, 250, hwnd, HMENU(IRON::comboBoxID::comboBoxBeamWeldID), NULL, NULL);
 
 	SendMessage(comboBoxBeamWeld, CB_ADDSTRING, 0, LPARAM(TEXT("45БС1 ")));
 	SendMessage(comboBoxBeamWeld, CB_ADDSTRING, 0, LPARAM(TEXT("45БС2 ")));
@@ -298,7 +277,7 @@ void buildGUI()
 	SendMessage(comboBoxBeamWeld, CB_SETCURSEL, 0, 0);*/
 
 	comboBoxSquare = CreateWindow(TEXT("COMBOBOX"), NULL, WS_CHILD | WS_VSCROLL | CBS_NOINTEGRALHEIGHT | CBS_DROPDOWNLIST,
-		10, 40, 160, 250, hwnd, HMENU(IRON::comboBoxID::comboBoxSquareID), NULL, NULL);
+		10, 40, 140, 250, hwnd, HMENU(IRON::comboBoxID::comboBoxSquareID), NULL, NULL);
 
 	SendMessage(comboBoxSquare, CB_ADDSTRING, 0, LPARAM(TEXT("мм3")));
 	SendMessage(comboBoxSquare, CB_ADDSTRING, 0, LPARAM(TEXT("мм3.2")));
@@ -375,7 +354,7 @@ void buildGUI()
 	SendMessage(comboBoxSquare, CB_SETCURSEL, 0, 0);
 
 	comboBoxCircle = CreateWindow(TEXT("COMBOBOX"), NULL, WS_CHILD | WS_VSCROLL | CBS_NOINTEGRALHEIGHT | CBS_DROPDOWNLIST,
-		10, 40, 160, 250, hwnd, HMENU(IRON::comboBoxID::comboBoxCircleID), NULL, NULL);
+		10, 40, 140, 250, hwnd, HMENU(IRON::comboBoxID::comboBoxCircleID), NULL, NULL);
 
 	SendMessage(comboBoxCircle, CB_ADDSTRING, 0, LPARAM(TEXT("d5")));
 	SendMessage(comboBoxCircle, CB_ADDSTRING, 0, LPARAM(TEXT("d5.5")));
@@ -481,7 +460,7 @@ void buildGUI()
 	SendMessage(comboBoxCircle, CB_SETCURSEL, 0, 0);
 
 	comboBoxCulvertCircle = CreateWindow(TEXT("COMBOBOX"), NULL, WS_CHILD | WS_VSCROLL | CBS_NOINTEGRALHEIGHT | CBS_DROPDOWNLIST,
-		10, 40, 160, 250, hwnd, HMENU(IRON::comboBoxID::comboBoxCulvertCircleID), NULL, NULL);
+		10, 40, 140, 250, hwnd, HMENU(IRON::comboBoxID::comboBoxCulvertCircleID), NULL, NULL);
 
 	SendMessage(comboBoxCulvertCircle, CB_ADDSTRING, 0, LPARAM(TEXT("(Л)6x10.2x1.8")));
 	SendMessage(comboBoxCulvertCircle, CB_ADDSTRING, 0, LPARAM(TEXT("(Л)8x13.5x2")));
@@ -533,7 +512,7 @@ void buildGUI()
 	SendMessage(comboBoxCulvertCircle, CB_SETCURSEL, 0, 0);
 
 	comboBoxCulvertProfileSq = CreateWindow(TEXT("COMBOBOX"), NULL, WS_CHILD | WS_VSCROLL | CBS_NOINTEGRALHEIGHT | CBS_DROPDOWNLIST,
-		10, 40, 160, 250, hwnd, HMENU(IRON::comboBoxID::comboBoxCulvertProfileSqID), NULL, NULL);
+		10, 40, 140, 250, hwnd, HMENU(IRON::comboBoxID::comboBoxCulvertProfileSqID), NULL, NULL);
 
 	SendMessage(comboBoxCulvertProfileSq, CB_ADDSTRING, 0, LPARAM(TEXT("10x0.8")));
 	SendMessage(comboBoxCulvertProfileSq, CB_ADDSTRING, 0, LPARAM(TEXT("10x0.9")));
@@ -683,7 +662,7 @@ void buildGUI()
 	SendMessage(comboBoxCulvertProfileSq, CB_SETCURSEL, 0, 0);
 
 	comboBoxCulvertProfileRec = CreateWindow(TEXT("COMBOBOX"), NULL, WS_CHILD | WS_VSCROLL | CBS_NOINTEGRALHEIGHT | CBS_DROPDOWNLIST,
-		10, 40, 160, 250, hwnd, HMENU(IRON::comboBoxID::comboBoxCulvertProfileRecID), NULL, NULL);
+		10, 40, 140, 250, hwnd, HMENU(IRON::comboBoxID::comboBoxCulvertProfileRecID), NULL, NULL);
 	
 	SendMessage(comboBoxCulvertProfileRec, CB_ADDSTRING, 0, LPARAM(TEXT("15x10x1")));
 	SendMessage(comboBoxCulvertProfileRec, CB_ADDSTRING, 0, LPARAM(TEXT("15x10x1.5")));
@@ -985,7 +964,7 @@ void buildGUI()
 	SendMessage(comboBoxCulvertProfileRec, CB_SETCURSEL, 0, 0);
 
 	comboBoxAngle1 = CreateWindow(TEXT("COMBOBOX"), NULL, WS_CHILD | WS_VSCROLL | CBS_NOINTEGRALHEIGHT | CBS_DROPDOWNLIST,
-		10, 40, 160, 250, hwnd, HMENU(IRON::comboBoxID::comboBoxAngle1ID), NULL, NULL);
+		10, 40, 140, 250, hwnd, HMENU(IRON::comboBoxID::comboBoxAngle1ID), NULL, NULL);
 	
 	SendMessage(comboBoxAngle1, CB_ADDSTRING, 0, LPARAM(TEXT("32x25x2")));
 	SendMessage(comboBoxAngle1, CB_ADDSTRING, 0, LPARAM(TEXT("32x25x2.5")));
@@ -1009,7 +988,7 @@ void buildGUI()
 	SendMessage(comboBoxAngle1, CB_SETCURSEL, 0, 0);
 	
 	comboBoxAngle2 = CreateWindow(TEXT("COMBOBOX"), NULL, WS_CHILD | WS_VSCROLL | CBS_NOINTEGRALHEIGHT | CBS_DROPDOWNLIST,
-		10, 40, 160, 250, hwnd, HMENU(IRON::comboBoxID::comboBoxAngle2ID), NULL, NULL);
+		10, 40, 140, 250, hwnd, HMENU(IRON::comboBoxID::comboBoxAngle2ID), NULL, NULL);
 	
 	SendMessage(comboBoxAngle2, CB_ADDSTRING, 0, LPARAM(TEXT("25x16x3")));
 	SendMessage(comboBoxAngle2, CB_ADDSTRING, 0, LPARAM(TEXT("30x20x3")));
@@ -1076,7 +1055,7 @@ void buildGUI()
 	SendMessage(comboBoxAngle2, CB_SETCURSEL, 0, 0);
 	
 	comboBoxAngle3 = CreateWindow(TEXT("COMBOBOX"), NULL, WS_CHILD | WS_VSCROLL | CBS_NOINTEGRALHEIGHT | CBS_DROPDOWNLIST,
-		10, 40, 160, 250, hwnd, HMENU(IRON::comboBoxID::comboBoxAngle3ID), NULL, NULL);
+		10, 40, 140, 250, hwnd, HMENU(IRON::comboBoxID::comboBoxAngle3ID), NULL, NULL);
 	
 	SendMessage(comboBoxAngle3, CB_ADDSTRING, 0, LPARAM(TEXT("20x3")));
 	SendMessage(comboBoxAngle3, CB_ADDSTRING, 0, LPARAM(TEXT("20x4")));
@@ -1170,7 +1149,7 @@ void buildGUI()
 	SendMessage(comboBoxAngle3, CB_SETCURSEL, 0, 0);
 	
 	comboBoxAngle4 = CreateWindow(TEXT("COMBOBOX"), NULL, WS_CHILD | WS_VSCROLL | CBS_NOINTEGRALHEIGHT | CBS_DROPDOWNLIST,
-		10, 40, 160, 250, hwnd, HMENU(IRON::comboBoxID::comboBoxAngle4ID), NULL, NULL);
+		10, 40, 140, 250, hwnd, HMENU(IRON::comboBoxID::comboBoxAngle4ID), NULL, NULL);
 	
 	SendMessage(comboBoxAngle4, CB_ADDSTRING, 0, LPARAM(TEXT("36x3")));
 	SendMessage(comboBoxAngle4, CB_ADDSTRING, 0, LPARAM(TEXT("40x2.5")));
@@ -1196,7 +1175,7 @@ void buildGUI()
 	SendMessage(comboBoxAngle4, CB_SETCURSEL, 0, 0);
 
 	comboBoxChannel1 = CreateWindow(TEXT("COMBOBOX"), NULL, WS_CHILD | WS_VSCROLL | CBS_NOINTEGRALHEIGHT | CBS_DROPDOWNLIST,
-		10, 40, 160, 250, hwnd, HMENU(IRON::comboBoxID::comboBoxChannel1ID), NULL, NULL);
+		10, 40, 140, 250, hwnd, HMENU(IRON::comboBoxID::comboBoxChannel1ID), NULL, NULL);
 	
 	SendMessage(comboBoxChannel1, CB_ADDSTRING, 0, LPARAM(TEXT("5У")));
 	SendMessage(comboBoxChannel1, CB_ADDSTRING, 0, LPARAM(TEXT("6.5У")));
@@ -1279,7 +1258,7 @@ void buildGUI()
 	SendMessage(comboBoxChannel1, CB_SETCURSEL, 0, 0);
 	
 	comboBoxChannel2 = CreateWindow(TEXT("COMBOBOX"), NULL, WS_CHILD | WS_VSCROLL | CBS_NOINTEGRALHEIGHT | CBS_DROPDOWNLIST,
-		10, 40, 160, 250, hwnd, HMENU(IRON::comboBoxID::comboBoxChannel2ID), NULL, NULL);
+		10, 40, 140, 250, hwnd, HMENU(IRON::comboBoxID::comboBoxChannel2ID), NULL, NULL);
 	
 	SendMessage(comboBoxChannel2, CB_ADDSTRING, 0, LPARAM(TEXT("25x26x2")));
 	SendMessage(comboBoxChannel2, CB_ADDSTRING, 0, LPARAM(TEXT("25x30x2")));
@@ -1294,7 +1273,7 @@ void buildGUI()
 	SendMessage(comboBoxChannel2, CB_ADDSTRING, 0, LPARAM(TEXT("40x30x2")));
 	SendMessage(comboBoxChannel2, CB_ADDSTRING, 0, LPARAM(TEXT("40x30x2.5")));
 	SendMessage(comboBoxChannel2, CB_ADDSTRING, 0, LPARAM(TEXT("40x40x2")));
-	SendMessage(comboBoxChannel2, CB_ADDSTRING, 0, LPARAM(TEXT("40x40x2.5:")));
+	SendMessage(comboBoxChannel2, CB_ADDSTRING, 0, LPARAM(TEXT("40x40x2.5")));
 	SendMessage(comboBoxChannel2, CB_ADDSTRING, 0, LPARAM(TEXT("40x40x3")));
 	SendMessage(comboBoxChannel2, CB_ADDSTRING, 0, LPARAM(TEXT("42x42x4")));
 	SendMessage(comboBoxChannel2, CB_ADDSTRING, 0, LPARAM(TEXT("43x45x2")));
@@ -1457,7 +1436,7 @@ void buildGUI()
 	SendMessage(comboBoxChannel2, CB_SETCURSEL, 0, 0);
 	
 	comboBoxChannel3 = CreateWindow(TEXT("COMBOBOX"), NULL, WS_CHILD | WS_VSCROLL | CBS_NOINTEGRALHEIGHT | CBS_DROPDOWNLIST,
-		10, 40, 160, 250, hwnd, HMENU(IRON::comboBoxID::comboBoxChannel3ID), NULL, NULL);
+		10, 40, 140, 250, hwnd, HMENU(IRON::comboBoxID::comboBoxChannel3ID), NULL, NULL);
 	
 	SendMessage(comboBoxChannel3, CB_ADDSTRING, 0, LPARAM(TEXT("32x22x12x3")));
 	SendMessage(comboBoxChannel3, CB_ADDSTRING, 0, LPARAM(TEXT("32x32x20x2")));
@@ -1519,34 +1498,60 @@ void buildGUI()
 	SendMessage(comboBoxChannel3, CB_ADDSTRING, 0, LPARAM(TEXT("300x80x40x5")));
 	SendMessage(comboBoxChannel3, CB_SETCURSEL, 0, 0);
 
-	//comboBoxTape = CreateWindow(TEXT("COMBOBOX"), NULL, WS_CHILD | WS_VSCROLL | CBS_NOINTEGRALHEIGHT | CBS_DROPDOWNLIST,
-	//	10, 40, 160, 250, hwnd, HMENU(IRON::comboBoxID::comboBoxTapeID), NULL, NULL);
-	//SendMessage(comboBoxTape, CB_ADDSTRING, 0, LPARAM(TEXT("")));
-	//SendMessage(comboBoxTape, CB_SETCURSEL, 0, 0);
+	comboBoxMetalType = CreateWindow(TEXT("COMBOBOX"), NULL, WS_CHILD | WS_VSCROLL | CBS_DROPDOWNLIST,
+		10, 40, 90, 220, hwnd, HMENU(IRON::comboBoxID::comboBoxMetalTypeID), NULL, NULL);
 
-	//comboBoxList = CreateWindow(TEXT("COMBOBOX"), NULL, WS_CHILD | WS_VSCROLL | CBS_NOINTEGRALHEIGHT | CBS_DROPDOWNLIST,
-	//	10, 40, 160, 250, hwnd, HMENU(IRON::comboBoxID::comboBoxListID), NULL, NULL);
-	//SendMessage(comboBoxList, CB_ADDSTRING, 0, LPARAM(TEXT("")));
-	//SendMessage(comboBoxList, CB_SETCURSEL, 0, 0);
+	SendMessage(comboBoxMetalType, CB_ADDSTRING, 0, LPARAM(TEXT("СТ 3")));
+	SendMessage(comboBoxMetalType, CB_ADDSTRING, 0, LPARAM(TEXT("10")));
+	SendMessage(comboBoxMetalType, CB_ADDSTRING, 0, LPARAM(TEXT("20")));
+	SendMessage(comboBoxMetalType, CB_ADDSTRING, 0, LPARAM(TEXT("40X")));
+	SendMessage(comboBoxMetalType, CB_ADDSTRING, 0, LPARAM(TEXT("45")));
+	SendMessage(comboBoxMetalType, CB_ADDSTRING, 0, LPARAM(TEXT("65")));
+	SendMessage(comboBoxMetalType, CB_ADDSTRING, 0, LPARAM(TEXT("65Г")));
+	SendMessage(comboBoxMetalType, CB_ADDSTRING, 0, LPARAM(TEXT("09Г2С")));
+	SendMessage(comboBoxMetalType, CB_ADDSTRING, 0, LPARAM(TEXT("15Х5М")));
+	SendMessage(comboBoxMetalType, CB_ADDSTRING, 0, LPARAM(TEXT("10ХСНД")));
+	SendMessage(comboBoxMetalType, CB_ADDSTRING, 0, LPARAM(TEXT("12Х1МФ")));
+	SendMessage(comboBoxMetalType, CB_ADDSTRING, 0, LPARAM(TEXT("ШХ15")));
+	SendMessage(comboBoxMetalType, CB_ADDSTRING, 0, LPARAM(TEXT("Р6М5")));
+	SendMessage(comboBoxMetalType, CB_ADDSTRING, 0, LPARAM(TEXT("У7")));
+	SendMessage(comboBoxMetalType, CB_ADDSTRING, 0, LPARAM(TEXT("У8")));
+	SendMessage(comboBoxMetalType, CB_ADDSTRING, 0, LPARAM(TEXT("У8А")));
+	SendMessage(comboBoxMetalType, CB_ADDSTRING, 0, LPARAM(TEXT("У10")));
+	SendMessage(comboBoxMetalType, CB_ADDSTRING, 0, LPARAM(TEXT("У10А")));
+	SendMessage(comboBoxMetalType, CB_ADDSTRING, 0, LPARAM(TEXT("У12А")));
+	SendMessage(comboBoxMetalType, CB_SETCURSEL, 0, 0);
+
+	msgHight = CreateWindow(TEXT("STATIC"), TEXT("высота мм"), WS_CHILD | ES_CENTER,
+		110, 40, 80, 20, hwnd, NULL, NULL, NULL);
+
+	editHight = CreateWindow(TEXT("EDIT"), NULL, WS_CHILD | WS_BORDER | ES_RIGHT | ES_NUMBER,
+		200, 40, 30, 20, hwnd, HMENU(IRON::comboBoxID::editHightID), NULL, NULL);
+
+	msgWidth = CreateWindow(TEXT("STATIC"), TEXT("ширина мм"), WS_CHILD | ES_CENTER,
+		240, 40, 80, 20, hwnd, NULL, NULL, NULL);
+
+	editWidth = CreateWindow(TEXT("EDIT"), NULL, WS_CHILD | WS_BORDER | ES_RIGHT | ES_NUMBER,
+		330, 40, 50, 20, hwnd, HMENU(IRON::comboBoxID::editWidthID), NULL, NULL);
 
 	msg = CreateWindow(TEXT("STATIC"), TEXT("длина в см"), WS_CHILD | WS_VISIBLE | ES_CENTER,
-		380, 10, 120, 20, hwnd, NULL, NULL, NULL);
+		390, 10, 120, 20, hwnd, NULL, NULL, NULL);
 
 	edit = CreateWindow(TEXT("EDIT"), NULL, WS_CHILD | WS_VISIBLE | WS_BORDER | ES_RIGHT | ES_NUMBER,
-		380, 40, 120, 20, hwnd, HMENU(IRON::comboBoxID::editID), NULL, NULL);
+		390, 40, 120, 20, hwnd, HMENU(IRON::comboBoxID::editID), NULL, NULL);
 
 	msgResult = CreateWindow(TEXT("STATIC"), TEXT("результат"), WS_CHILD | WS_VISIBLE | ES_CENTER,
-		380, 70, 120, 20, hwnd, NULL, NULL, NULL);
+		390, 70, 120, 20, hwnd, NULL, NULL, NULL);
 
 	HWND buttonQuit = CreateWindow(TEXT("BUTTON"), TEXT("выход"), WS_CHILD | WS_VISIBLE,
-		510, 10, 90, 20, hwnd, HMENU(IRON::comboBoxID::buttonQuitID), NULL, NULL);
+		520, 10, 90, 20, hwnd, HMENU(IRON::comboBoxID::buttonQuitID), NULL, NULL);
 
 	buttonLengthOrWeight = CreateWindow(TEXT("BUTTON"), TEXT("см > кг"), WS_CHILD | WS_VISIBLE,
-		310, 10, 60, 20, hwnd, HMENU(IRON::comboBoxID::buttonLengthOrWeightID), NULL, NULL);
+		320, 10, 60, 20, hwnd, HMENU(IRON::comboBoxID::buttonLengthOrWeightID), NULL, NULL);
 
 	HWND buttonCalculate = CreateWindow(TEXT("BUTTON"), TEXT("расчёт"), WS_CHILD | WS_VISIBLE,
-		510, 40, 90, 20, hwnd, HMENU(IRON::comboBoxID::buttonCalcID), NULL, NULL);
+		520, 40, 90, 20, hwnd, HMENU(IRON::comboBoxID::buttonCalcID), NULL, NULL);
 
 	msg2 = CreateWindow(TEXT("STATIC"), TEXT(""), WS_CHILD | WS_VISIBLE | ES_CENTER,
-		380, 100, 120, 20, hwnd, NULL, NULL, NULL);
+		520, 70, 90, 20, hwnd, NULL, NULL, NULL);
 }

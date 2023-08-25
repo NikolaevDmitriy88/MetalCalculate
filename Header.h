@@ -30,17 +30,26 @@ extern HWND comboBoxList;
 
 extern HWND msg;
 extern HWND msg2;
-extern HWND edit;
+extern HWND msgHight;
+extern HWND msgWidth;
 extern HWND msgResult;
+
+extern HWND edit;
+extern HWND editHight;
+extern HWND editWidth;
+
 extern HWND buttonLengthOrWeight;
 
 extern char inputCount[15];
+extern char inputHight[4];
+extern char inputWidth[6];
 
 extern UINT16 indexMetalType;
 extern UINT16 index;
 extern UINT16 indexItems;
 
 extern bool msgLengthOrWeight;
+extern bool isTabularInfo;
 
 void CalculateResult(HWND msgResult);
 
@@ -50,10 +59,10 @@ namespace IRON
 {
 	enum comboBoxID
 	{
-		buttonQuitID = 1, buttonCalcID, buttonLengthOrWeightID, editID, comboBoxItemsID,
-		comboBoxMetalTypeID, comboBoxArmatureID, comboBoxBeamGOSTID, comboBoxBeamNormalID,
-		comboBoxBeamWideID, comboBoxBeamColumnID, comboBoxBeamASeriesID, comboBoxSquareID,
-		comboBoxCircleID, comboBoxCulvertCircleID, comboBoxCulvertProfileSqID,
+		buttonQuitID = 1, buttonCalcID, buttonLengthOrWeightID, editID, editHightID, editWidthID,
+		comboBoxItemsID, comboBoxMetalTypeID, comboBoxArmatureID, comboBoxBeamGOSTID, 
+		comboBoxBeamNormalID, comboBoxBeamWideID, comboBoxBeamColumnID, comboBoxBeamASeriesID,
+		comboBoxSquareID, comboBoxCircleID, comboBoxCulvertCircleID, comboBoxCulvertProfileSqID,
 		comboBoxCulvertProfileRecID, comboBoxAngle1ID, comboBoxAngle2ID, comboBoxAngle3ID,
 		comboBoxAngle4ID, comboBoxChannel1ID, comboBoxChannel2ID, comboBoxChannel3ID,
 		comboBoxTapeID, comboBoxListID
